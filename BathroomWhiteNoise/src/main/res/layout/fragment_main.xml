@@ -14,56 +14,60 @@
         android:text="@string/fan_switch"
         android:id="@+id/fanSwitch"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/spacing_switches" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/flush_switch"
+        android:id="@+id/flushSwitch"
+        android:layout_below="@+id/fanSwitch"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/spacing_switches" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/faucet_switch"
+        android:id="@+id/faucetSwitch"
+        android:layout_below="@+id/flushSwitch"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/spacing_switches" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hand_dryer_switch"
+        android:id="@+id/handDryerSwitch"
+        android:layout_below="@+id/doorSlamSwitch"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="@dimen/spacing_switches" />
+
+    <Switch
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/door_slam_switch"
+        android:id="@+id/doorSlamSwitch"
+        android:layout_below="@+id/faucetSwitch"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/spacing_switches" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fan_volume_seekbar"
+        android:text="@string/volume_seekBar"
         android:id="@+id/textView3"
-        android:layout_below="@+id/fanSwitch"
+        android:layout_above="@+id/volumeSeekBar"
         android:layout_alignParentLeft="true" />
 
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/fanVolumeSeekBar"
-        android:layout_below="@+id/textView3"
+        android:id="@+id/volumeSeekBar"
+        android:layout_marginBottom="38dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/flush_toggle"
-        android:id="@+id/textView"
-        android:layout_below="@+id/fanVolumeSeekBar"
-        android:layout_alignLeft="@+id/flushToggleButton"
-        android:layout_marginTop="35dp" />
-
-    <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FlushToggleButton"
-        android:id="@+id/flushToggleButton"
-        android:layout_below="@+id/textView"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="34dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/faucet_toggle"
-        android:id="@+id/textView2"
-        android:layout_above="@+id/faucetToggleButton"
-        android:layout_centerHorizontal="true" />
-
-    <ToggleButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New ToggleButton"
-        android:id="@+id/faucetToggleButton"
-        android:layout_alignTop="@+id/flushToggleButton"
-        android:layout_alignLeft="@+id/textView2" />
 
 
 

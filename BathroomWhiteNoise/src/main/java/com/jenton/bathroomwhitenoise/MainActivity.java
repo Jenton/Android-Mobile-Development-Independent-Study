@@ -35,6 +35,7 @@ public class MainActivity extends ActionBarActivity {
     //Timer
     Timer flushTimer = new Timer();
     Timer faucetTimer = new Timer();
+    Timer fanTimer = new Timer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,9 +79,11 @@ public class MainActivity extends ActionBarActivity {
 
 
         Switch fanSwitch;
-        ToggleButton flushToggle;
-        ToggleButton faucetToggle;
-        SeekBar fanVolumeSeekBar;
+        Switch flushSwitch;
+        Switch faucetSwitch;
+        Switch doorSwitch;
+        Switch handDryerSwitch;
+        SeekBar volumeSeekBar;
         AudioManager audioManager;
 
 
@@ -99,16 +102,16 @@ public class MainActivity extends ActionBarActivity {
 
             //initializing buttons
             fanSwitch = (Switch) rootView.findViewById(R.id.fanSwitch);
-            flushToggle = (ToggleButton) rootView.findViewById(R.id.flushToggleButton);
-            faucetToggle = (ToggleButton) rootView.findViewById(R.id.faucetToggleButton);
-            fanVolumeSeekBar = (SeekBar) rootView.findViewById(R.id.fanVolumeSeekBar);
+            flushSwitch = (Switch) rootView.findViewById(R.id.flushSwitch);
+            faucetSwitch = (Switch) rootView.findViewById(R.id.faucetSwitch);
+            volumeSeekBar = (SeekBar) rootView.findViewById(R.id.volumeSeekBar);
             audioManager = (AudioManager) getSystemService(MainActivity.AUDIO_SERVICE);
-            fanVolumeSeekBar.setMax(audioManager
+            volumeSeekBar.setMax(audioManager
                     .getStreamMaxVolume(AudioManager.STREAM_MUSIC));
-            fanVolumeSeekBar.setProgress(audioManager
+            volumeSeekBar.setProgress(audioManager
                     .getStreamVolume(AudioManager.STREAM_MUSIC));
 
-            fanVolumeSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
+            volumeSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
             {
                 @Override
                 public void onStopTrackingTouch(SeekBar arg0)
@@ -135,8 +138,8 @@ public class MainActivity extends ActionBarActivity {
                     if (isChecked) {
                         // The toggle is enabled
                         logger.log(Level.INFO, "Switch On");
-                        fanPlayer = MediaPlayer.create(MainActivity.this, R.raw.fan_apartment_cardoid);
-                        //currentSong = R.raw.song1;
+                        fanPlayer = MediaPlayer.create(MainActivity.this, R.raw.fan_apartment_cardoid_wav);
+
                         fanPlayer.setLooping(true);
                         fanPlayer.start();
 
@@ -149,7 +152,7 @@ public class MainActivity extends ActionBarActivity {
                 }
             });
 
-            flushToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            flushSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
                         // The toggle is enabled
@@ -161,7 +164,7 @@ public class MainActivity extends ActionBarActivity {
                         //currentSong = R.raw.song1;
 
                         //after waiting a random amount of seconds between 1-10 seconds, flush fires
-                        //then will wait a random amount of seconds between 1-60 seconds before firing again
+                        //then will wait a random amount of seconds between 46-105 seconds before firing again
                         flushTimer.schedule(
                                 new TimerTask() {
                                     @Override
@@ -171,8 +174,7 @@ public class MainActivity extends ActionBarActivity {
                                     }
                                 },
                                 (random.nextInt(10)+1)*1000,
-                                (random.nextInt(60)+1)*1000
-                                //(random.nextInt(10)+1)*1000
+                                (random.nextInt(60)+46)*1000
                         );
 
                     } else {
@@ -182,7 +184,7 @@ public class MainActivity extends ActionBarActivity {
                     }
                 }
             });
-            faucetToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            faucetSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
                         // The toggle is enabled
@@ -193,7 +195,7 @@ public class MainActivity extends ActionBarActivity {
                         faucetPlayer = MediaPlayer.create(MainActivity.this, R.raw.faucet_apartment_fanon_omni);
 
                         //after waiting a random amount of seconds between 1-10 seconds, faucet fires
-                        //then will wait a random amount of seconds between 1-60 seconds before firing again
+                        //then will wait a random amount of seconds between 11-70 seconds before firing again
                         faucetTimer.schedule(
                                 new TimerTask() {
                                     @Override
@@ -203,7 +205,7 @@ public class MainActivity extends ActionBarActivity {
                                     }
                                 },
                                 (random.nextInt(10)+1)*1000,
-                                (random.nextInt(60)+1)*1000
+                                (random.nextInt(60)+11)*1000
                                 //(random.nextInt(10)+1)*1000
                         );
 

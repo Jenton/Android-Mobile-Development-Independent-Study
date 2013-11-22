@@ -4,9 +4,11 @@
     <string name="app_name">Bathroom White Noise Generator</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="fan_switch">Fan On-Off</string>
-    <string name="flush_toggle">Flush</string>
-    <string name="faucet_toggle">Faucet</string>
-    <string name="fan_volume_seekbar">Fan Volume</string>
+    <string name="fan_switch">Fan</string>
+    <string name="flush_switch">Flush</string>
+    <string name="faucet_switch">Faucet</string>
+    <string name="hand_dryer_switch">Hand Dryer</string>
+    <string name="door_slam_switch">Door Slam</string>
+    <string name="volume_seekBar">Volume</string>
 
 </resources>
