@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-Mobile-Development-Independent-Study.iml" filepath="$PROJECT_DIR$/Android-Mobile-Development-Independent-Study.iml" />
       <module fileurl="file://$PROJECT_DIR$/BathroomWhiteNoise/BathroomWhiteNoise.iml" filepath="$PROJECT_DIR$/BathroomWhiteNoise/BathroomWhiteNoise.iml" />
-      <module fileurl="file://$PROJECT_DIR$/BathroomWhiteNoiseGenerator.iml" filepath="$PROJECT_DIR$/BathroomWhiteNoiseGenerator.iml" />
     </modules>
   </component>
 </project>
